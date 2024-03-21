@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply leading-[normal] m-0;
+}
+
+*,
+::before,
+::after {
+    border-width: 0;
+}
+
+.icon-container {
+    border-radius: 50%;
+    background-color: white;
+    height: 32px;
+    width: 32px;
+    color: rgba(37, 99, 235, 1);
+    ;
+}
+
+.chat-display {
+    width: 100%;
+    /* font-size: 1.5em; */
+}
+
+.prompt {
+    margin-left: auto;
+    text-align: right;
+    padding: 2%;
+    border-radius: 8px;
+    width: max-content;
+    background-color: #DFE1E7;
+}
+
+.reply {
+
+    text-align: left;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 2%;
+    border-radius: 8px;
+    width: max-content;
+    background-color: #DBEAFE;
+}
