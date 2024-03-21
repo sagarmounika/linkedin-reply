@@ -25,8 +25,8 @@ const Modal: React.FC<ModalProps> = ({ open ,setShowModal, setPrompt, prompt,han
             <div className="w-full  mx-auto max-w-3xl relative  rounded-lg bg-gray-50 shadow-[0px_4px_6px_-4px_rgba(0,_0,_0,_0.1),_0px_10px_15px_-3px_rgba(0,_0,_0,_0.1)] flex flex-col items-end justify-start p-4 box-border tracking-[normal]">
                  {suggestions.map((suggestion, index) => (
         <div key={index} className="chat-display">
-          <div className="prompt">{prompt}</div>
-          <div className="reply">{suggestion}</div>
+          <div className={index? "reply":"prompt"}>{suggestion}</div>
+      
         
         </div>
       ))}
@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({ open ,setShowModal, setPrompt, prompt,han
         </div>
      
         </button>
-      <button className="cursor-pointer border-2 border-bg-blue-500 p-3 mt-4 bg-blue-500 rounded-lg overflow-hidden flex flex-row items-center justify-center gap-[5px] text-xl" onClick={() => handleGenerate()}>
+      <button className="cursor-pointer border-2 border-bg-blue-500 p-3 mt-4 bg-blue-500 rounded-lg overflow-hidden flex flex-row items-center justify-center gap-[5px] text-xl" >
         <div className=" flex flex-col items-center justify-center box-border text-white font-semibold ">
        <HiOutlineRefresh className="font-semibold "/>
         </div>

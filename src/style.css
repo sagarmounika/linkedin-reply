@@ -4,6 +4,7 @@
 
 body {
     @apply leading-[normal] m-0;
+    box-sizing: border-box;
 }
 
 *,
@@ -23,6 +24,8 @@ body {
 
 .chat-display {
     width: 100%;
+    color: #666D80;
+    ;
     /* font-size: 1.5em; */
 }
 
@@ -31,8 +34,11 @@ body {
     text-align: right;
     padding: 2%;
     border-radius: 8px;
-    width: max-content;
+    width: fit-content;
     background-color: #DFE1E7;
+    max-width: fit-content;
+
+    width: 60%;
 }
 
 .reply {
@@ -42,6 +48,16 @@ body {
     margin-bottom: 2%;
     padding: 2%;
     border-radius: 8px;
-    width: max-content;
+    width: fit-content;
     background-color: #DBEAFE;
+    max-width: fit-content;
+
+    width: 60%;
+}
+
+.pop-container {
+    width: max-content;
+    margin: 2%;
+    font-size: 1.2em;
+    white-space: pre;
 }

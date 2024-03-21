@@ -16,6 +16,11 @@ const PlasmoOverlay: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
 const dummyResponse = `Thank you for the opportunity! If you have any more questions or if there's anything else I can help you with, feel free to ask.`;
   useEffect(() => {
+    const iconClickHandler=()=>{
+         setSuggestions([]);
+    setShowBtnGrp(false)
+    setShowModal(true)
+    }
     const addIconToInputField = () => {
       const inputField = document.querySelector('.msg-form__contenteditable[role="textbox"]');
       if (inputField && !iconAdded) {
@@ -37,17 +42,17 @@ const dummyResponse = `Thank you for the opportunity! If you have any more quest
         magicIcon.style.display="flex"
         magicIcon.style.justifyContent="center"
         magicIcon.style.alignItems="center"
-      
-        ReactDOM.render(<FaMagic onClick={() => setShowModal(true)} />, magicIcon);
+        magicIcon.addEventListener("click",iconClickHandler)
+        ReactDOM.render(<FaMagic  />, magicIcon);
         icon.appendChild(magicIcon);
         inputFieldElement.appendChild(icon);
         setIconAdded(true);
 
-        // inputFieldElement.addEventListener('focusout', () => {
-        //   ReactDOM.unmountComponentAtNode(magicIcon);
-        //   icon.remove();
-        //   setIconAdded(false);
-        // });
+        inputFieldElement.addEventListener('focusout', () => {
+          ReactDOM.unmountComponentAtNode(magicIcon);
+          icon.remove();
+          setIconAdded(false);
+        });
       }
     };
 
@@ -61,8 +66,9 @@ const dummyResponse = `Thank you for the opportunity! If you have any more quest
   const handleGenerate = () => {
  
     
-    setSuggestions([...suggestions, dummyResponse]);
+    setSuggestions([prompt, dummyResponse]);
     setShowBtnGrp(true)
+    setPrompt("")
   };
 const modifyPlaceholder = () => {
     const placeholder = document.querySelector('.msg-form__placeholder[data-placeholder="Write a message…"]');
